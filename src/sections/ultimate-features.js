@@ -3,7 +3,7 @@ import { jsx, Box, Container } from 'theme-ui';
 import SectionHeading from 'components/section-heading';
 import UltimateFeature from 'components/cards/ultimate-feature';
 
-import bulb from 'assets/images/icons/bulb.png';
+import ac from 'assets/images/icons/reshot-ac.svg';
 import dart from 'assets/images/icons/dart.png';
 import rocket from 'assets/images/icons/rocket.png';
 import trophy from 'assets/images/icons/trophy.png';
@@ -11,7 +11,7 @@ import trophy from 'assets/images/icons/trophy.png';
 const data = [
   {
     id: 1,
-    icon: bulb,
+    icon: ac,
     title: 'Fast Performance',
     description: 'See where you’re making and spending money in real.',
   },
@@ -41,8 +41,9 @@ const UltimateFeatures = () => {
       <Container>
         <SectionHeading
           sx={styles.heading}
-          title="Go Beyond unlimited features"
-          description="Focus only on the meaning, we take care of the design. As soon as the meeting end you can export in one click into your preferred format."
+          title="Services"
+          description="Melayani jasa service, pengadaan, perdagangan umum dan lainnya yang
+          berhubungan dengan kebutuhan/keperluan kantor"
         />
         <Box sx={styles.features}>
           {data?.map((item) => (

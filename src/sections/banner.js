@@ -84,6 +84,8 @@ const styles = {
     mb: ['60px', '60px', 0],
     img: {
       maxWidth: ['100%', '100%', '100%', '100%', '90%', '90%', '100%'],
+      borderRadius: '18px',
+      maxHeight: ['350px', '500px']
     },
   },
 };
