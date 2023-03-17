@@ -1,9 +1,7 @@
 /** @jsx jsx */
 import { jsx, Box, Container, Heading, Text, Button, Image } from 'theme-ui';
+import { Link as MenuLink } from 'react-scroll';
 import banner from 'assets/images/banner2.png';
-import paypal from 'assets/images/paypal.png';
-import google from 'assets/images/google.png';
-import dropbox from 'assets/images/dropbox.png';
 
 const Banner = () => {
   return (
@@ -18,9 +16,20 @@ const Banner = () => {
               Membantu anda dalam hal pekerjaan yang berhubungan segala jenis keperluan atau kebutuhan perkantoran.
               Kami memiliki tenaga ahli yang terampil dan sudah berpengalaman untuk mendapatkan hasil yang terbaik.
             </Text>
-            <Button variant="primary" sx={styles.button}>
-              Explore Now
-            </Button>
+            <MenuLink
+              to='services'
+              spy={true}
+              offset={-70}
+              smooth={true}
+              duration={500}
+              className="nav-item"
+              activeClass="active"
+            >
+              <Button variant="primary" sx={styles.button}>
+                Explore Now
+              </Button>
+            </MenuLink>
+             
             {/* <Box sx={styles.clients}>
               <Image src={paypal} alt="paypal" />
               <Image src={google} alt="google" />
@@ -83,9 +92,11 @@ const styles = {
     mt: ['30px', '30px', 0],
     mb: ['60px', '60px', 0],
     img: {
+      width: '100%',
       maxWidth: ['100%', '100%', '100%', '100%', '90%', '90%', '100%'],
       borderRadius: '18px',
-      maxHeight: ['350px', '500px']
+      maxHeight: ['350px', '500px'],
+      objectFit: 'cover'
     },
   },
 };

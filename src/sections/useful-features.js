@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, Box, Container } from 'theme-ui';
 import SectionHeading from 'components/section-heading';
-import UltimateFeature from 'components/cards/ultimate-feature';
+import UltimateFeature from 'components/cards/service';
 
 import bulb from 'assets/images/icons/bulb-2.png';
 import diamond from 'assets/images/icons/diamond.png';

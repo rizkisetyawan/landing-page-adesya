@@ -43,7 +43,7 @@ export default function SEO({
   ].concat(meta);
   return (
     <Head>
-      <title>{title}</title>
+      <title>CV. ADESYA TECH INVESTMENT</title>
       {metaData.map(({ name, content }, i) => (
         <meta key={i} name={name} content={content} />
       ))}

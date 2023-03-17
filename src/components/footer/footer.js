@@ -5,6 +5,10 @@ import { Link } from 'components/link';
 import FooterWidget from 'components/footer-widget';
 import { menuItems, footerNav } from './footer.data';
 import { rgba } from 'polished';
+import { BsFillTelephoneFill } from "react-icons/bs";
+import { MdEmail } from 'react-icons/md'
+import { SiGooglemaps } from 'react-icons/si'
+
 
 export default function Footer() {
   return (
@@ -21,14 +25,17 @@ export default function Footer() {
           <Box sx={styles.copyright}>
             <Logo />
             <Text as="span">
-              Copyright by {new Date().getFullYear()} RedQ, Inc
+              Copyright by {new Date().getFullYear()} CV. Adesya Tech Investment
             </Text>
           </Box>
-
+          
           <Box as="ul" sx={styles.footerNav}>
-            {footerNav.map(({ path, label }, i) => (
-              <li key={i}>
-                <Link path={path} key={i} label={label} variant="footer" />
+            {footerNav.map(({ icon, value }, i) => (
+              <li key={i} sx={styles.wrapIcons}>
+                {icon}
+                <Text>
+                  {value}
+                </Text>
               </li>
             ))}
           </Box>
@@ -79,6 +86,7 @@ const styles = {
     display: ['flex'],
     flexWrap: ['wrap', null, null, 'unset'],
     justifyContent: ['center', null, 'flex-start'],
+    // flexDirection: 'column'
     'li + li': {
       ml: ['18px', '18px', '20px'],
       '@media only screen and (max-width: 400px)': {
@@ -89,4 +97,10 @@ const styles = {
       color: 'textSecondary',
     },
   },
+  wrapIcons: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: 2,
+    mb: 3,
+  }
 };

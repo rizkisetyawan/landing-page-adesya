@@ -1,3 +1,7 @@
+import { BsFillTelephoneFill } from "react-icons/bs";
+import { MdEmail } from 'react-icons/md'
+import { SiGooglemaps } from 'react-icons/si'
+
 export const menuItems = [
   {
     id: 1,
@@ -129,23 +133,15 @@ export const menuItems = [
 
 export const footerNav = [
   {
-    path: '#!',
-    label: 'Home',
+    icon: <BsFillTelephoneFill />,
+    value: '+6281317827900',
   },
   {
-    path: '#!',
-    label: 'Advertise',
+    icon: <MdEmail />,
+    value: 'adesyatech@gmail.com',
   },
   {
-    path: '#!',
-    label: 'Supports',
-  },
-  {
-    path: '#!',
-    label: 'Marketing',
-  },
-  {
-    path: '#!',
-    label: 'FAQ',
+    icon: <SiGooglemaps />,
+    value: 'Jl. Halmahera 2 No 27, Cimone Jaya, Karawaci Tangerang, Banten - Indonesia',
   },
 ];

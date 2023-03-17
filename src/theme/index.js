@@ -95,7 +95,8 @@ export default {
   },
   section: {
     banner: {},
-    ultimateFeature: {
+    services: {
+      backgroundColor: 'backgroundSecondary',
       pt: [0, 7, 7, 8, 8, 7, 7],
       pb: [7, 7, 7, 8, 9, 130, 150],
     },
@@ -113,10 +114,10 @@ export default {
       pt: [7, 7, 7, 7, 8],
       pb: [7, 7, 7, 7, 150],
     },
-    widgets: {
-      backgroundColor: '#FFF7F5',
+    clients: {
+      backgroundColor: 'backgroundSecondary',
       pt: [7, 7, 7, 7, 8],
-      pb: [7, 7, 7, 7, 6, 8],
+      pb: [7, 7, 7, 7, 6, 9],
     },
     pricing: {
       pt: [7, 7, 7, 7, 8],
