@@ -8,29 +8,29 @@ import theme from "theme";
 import { ThemeProvider } from "theme-ui";
 
 const URL = process.env.NEXT_PUBLIC_BASE_URL;
+const find = (data, number) => data.find((row) => row.order === number);
 
 export default function IndexPage({ data }) {
+  const { home, sections, services, projects, clients, contacts } = data;
   return (
     <ThemeProvider theme={theme}>
-      <Layout>
-        <SEO title="Startup Landing 010" />
-        <Banner data={data.home} />
-        <Services />
-        <Projects />
-        <Clients />
+      <Layout data={contacts}>
+        <SEO title="Adesya Tech Investment" />
+        <Banner data={home} />
+        <Services data={services} text={find(sections, 1)} />
+        <Projects data={projects} text={find(sections, 2)} />
+        <Clients data={clients} text={find(sections, 3)} />
       </Layout>
     </ThemeProvider>
   );
 }
 
 export const getServerSideProps = async () => {
-  const home = await fetch(`${URL}/api/home`);
-  const homeJson = await home.json();
+  const data = await fetch(`${URL}/api/data`);
+  const dataJson = await data.json();
   return {
     props: {
-      data: {
-        home: homeJson[0],
-      },
+      data: dataJson,
     },
   };
 };

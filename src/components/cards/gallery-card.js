@@ -1,10 +1,11 @@
 /** @jsx jsx */
 import { jsx, Box, Flex, Image } from "theme-ui";
+import { urlFor } from "utils/client";
 
 const GalleryCard = ({ item }) => {
   return (
     <Flex as="figure" sx={styles.figure}>
-      <Image loading="lazy" src={item?.image} alt={item?.title} />
+      <Image loading="lazy" src={urlFor(item?.image)} alt={item?.title} />
       <Box as="figcaption">{item?.title}</Box>
     </Flex>
   );

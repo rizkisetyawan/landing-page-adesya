@@ -5,7 +5,6 @@ import banner from "assets/images/banner2.png";
 import { urlFor } from "utils/client";
 
 const Banner = ({ data }) => {
-  console.log(data);
   return (
     <Box id="home" as="section" variant="section.banner">
       <Container>

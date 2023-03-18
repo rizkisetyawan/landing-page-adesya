@@ -1,17 +1,18 @@
 /** @jsx jsx */
 import { jsx, Box, Image, Heading, Text } from "theme-ui";
+import { urlFor } from "utils/client";
 
 const Service = ({ data, ...props }) => {
   return (
     <Box sx={styles.feature} {...props}>
       <Box sx={styles.boxIcon}>
         <figure>
-          <Image src={data?.icon} alt={data?.title} />
+          <Image src={urlFor(data.image)} alt={data?.title} />
         </figure>
       </Box>
       <Box>
         <Heading as="h4">{data?.title}</Heading>
-        <Text as="p">{data?.description}</Text>
+        <Text as="p">{data?.subTitle}</Text>
       </Box>
     </Box>
   );
