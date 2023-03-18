@@ -141,7 +141,7 @@ const styles = {
     maxHeight: ["350px", "500px"],
   },
   contentImage: {
-    width: "380px",
+    width: ["250px", "300px", "300px", "380px"],
     position: "absolute",
     left: "50%",
     top: "50%",
