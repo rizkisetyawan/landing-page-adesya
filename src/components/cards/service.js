@@ -35,7 +35,7 @@ const styles = {
     figure: {
       backgroundColor: "white",
       boxShadow: "0px 8px 24px rgba(53, 95, 158, 0.1)",
-      height: "90px",
+      height: ["60px", "60px", "90px"],
       // margin: [
       //   '0 auto 30px',
       //   '0 auto 30px',
@@ -43,19 +43,19 @@ const styles = {
       //   '0 auto 30px',
       //   '0 0 40px',
       // ],
-      width: "90px",
+      width: ["60px", "60px", "90px"],
 
       borderRadius: "50%",
       margin: 0,
     },
     h4: {
-      fontSize: "18px",
+      fontSize: ["16px", "18px"],
       lineHeight: 1.28,
       color: "heading",
-      marginBottom: "16px",
+      marginBottom: ["12px", "12px", "16px"],
     },
     p: {
-      fontSize: 16,
+      fontSize: [14, 16],
       lineHeight: [1.6, 1.6, 1.6, 1.88],
       color: "text",
     },
