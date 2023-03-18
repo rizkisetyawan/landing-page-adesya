@@ -84,7 +84,7 @@ const styles = {
     marginBottom: [60, 60, 60, 80],
   },
   features: {
-    gap: ["35px 60px", 60, 60, 40, 30, 60],
+    gap: ["60px 24px", "60px 32px", 60, 40, 30, 60],
     // display: ['grid', 'grid'],
     // gridTemplateColumns: [
     //   'repeat(1, 1fr)',
