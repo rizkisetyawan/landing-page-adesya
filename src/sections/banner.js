@@ -87,8 +87,8 @@ const styles = {
     mt: ["30px", "30px", 0],
     mb: ["60px", "60px", 0],
     img: {
-      width: "90%",
-      borderRadius: "18px",
+      width: ["100%", "100%", "90%"],
+      borderRadius: "12px",
       maxHeight: ["350px", "500px"],
       objectFit: "cover",
       position: "relative",
@@ -97,6 +97,7 @@ const styles = {
     position: "relative",
   },
   borderImage: {
+    display: ["none", "none", "block"],
     width: "90%",
     height: "100%",
     position: "absolute",
@@ -104,7 +105,7 @@ const styles = {
     borderColor: "primary",
     top: 32,
     right: 16,
-    borderRadius: "18px",
+    borderRadius: "12px",
     maxHeight: ["350px", "500px"],
   },
 };

@@ -18,11 +18,11 @@ const styles = {
     position: "relative",
     overflow: "hidden",
     alignItems: "flex-start",
-    mb: 30,
-    mx: 15,
+    mb: ["8px", "8px", 30, 30, 30],
+    mx: ["4px", "4px", 15, 15, 15],
     width: [
-      "calc(100% - 30px)",
-      "calc(100% - 30px)",
+      "calc(50% - 8px)",
+      "calc(50% - 8px)",
       "calc(50% - 30px)",
       "calc(50% - 30px)",
       "calc(33.3333% - 30px)",
@@ -42,7 +42,7 @@ const styles = {
     img: {
       borderRadius: 5,
       transform: "scale(1)",
-      transition: "none",
+      transition: "all 0.3s ease-in-out 0s",
     },
     ":hover": {
       img: {
@@ -53,10 +53,10 @@ const styles = {
       color: "#fff",
       position: "absolute",
       fontWeight: 700,
-      fontSize: 18,
-      lineHeight: 1.68,
+      fontSize: [14, 14, 18],
+      lineHeight: [1.2, 1.2, 1.68],
       letterSpacing: "heading",
-      left: 30,
+      left: [16, 16, 30],
       bottom: 20,
       zIndex: 1,
     },

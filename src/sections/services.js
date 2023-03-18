@@ -47,7 +47,7 @@ const data = [
     id: 4,
     icon: safety,
     title: "Safety",
-    description: `Alat Pelindung Diri (APD) & Perlengkapan Kesehatan dan Keselamatan Kerja dan Lingkungan Hidup (K3LH)`,
+    description: `Alat Pelindung Diri (APD) & K3LH`,
   },
   {
     id: 7,
