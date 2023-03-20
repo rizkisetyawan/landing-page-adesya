@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx, Box, Container, Heading, Text, Button, Image } from "theme-ui";
 import { Link as MenuLink } from "react-scroll";
-import banner from "assets/images/banner2.png";
 import { urlFor } from "utils/client";
 
 const Banner = ({ data }) => {
