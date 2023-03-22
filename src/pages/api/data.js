@@ -5,7 +5,11 @@ export default async function handler(req, res) {
     'home': *[_type == 'home'][0],
     'sections': *[_type == 'sections'],
     'services': *[_type == 'services'],
-    'projects': *[_type == 'projects'],
+    'projects': *[_type == 'projects'] {
+      order,
+      title,
+      'images': images[]->image
+    },
     'clients': *[_type == 'clients'],
     'contacts': *[_type == 'contacts'][0],
   }`);

@@ -1,82 +1,89 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui';
-import { motion } from 'framer-motion';
+import { jsx } from "theme-ui";
+import { motion } from "framer-motion";
 
 export const AccordionButton = ({ children, ...rest }) => (
-  <div sx={styles.buttonToggle} {...rest}>
+  <div
+    css={{
+      display: "flex",
+      alignItems: "center",
+      letterSpacing: "-0.2px",
+      cursor: "pointer",
+      fontSize: "17px",
+      lineHeight: 1.5,
+      fontWeight: "500",
+      border: "none",
+      paddingTop: "10px",
+      paddingBottom: "10px",
+      paddingLeft: "15px",
+      paddingRight: "30px",
+      position: "relative",
+      color: "#0F2137",
+      "@media(min-width: 768px)": {
+        paddingLeft: "30px",
+        paddingRight: "30px",
+        paddingTop: "20px",
+        paddingBottom: "20px",
+        fontSize: "15px",
+      },
+
+      ":focus": {
+        outline: "none",
+        backgroundColor: "rgba(255, 255, 255, 0.4)",
+      },
+      span: {
+        position: "absolute",
+        top: "50%",
+        right: "20px",
+        transform: "translateY(-50%)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        borderRadius: "50%",
+        color: "#fff",
+        "@media(min-width: 768px)": {
+          right: "30px",
+        },
+        img: {
+          width: "7px",
+          "@media(min-width: 768px)": {
+            width: "auto",
+          },
+        },
+      },
+    }}
+    {...rest}
+  >
     {children}
   </div>
 );
 
-const styles = {
-  buttonToggle: {
-    display: 'flex',
-    color: 'headingSecondary',
-    cursor: 'pointer',
-    border: 'none',
-    fontSize: [16, 16, 16, 18, 20],
-    fontWeight: 500,
-    letterSpacing: -0.5,
-    position: 'relative',
-    paddingLeft: ['33px', '45px'],
-    lineHeight: [1.5, 1.8],
-    '& > span': {
-      position: 'absolute',
-      width: 20,
-      height: 20,
-      borderRadius: '50%',
-      backgroundColor: 'primary',
-      top: ['2px', '6px'],
-      left: [0, '13px'],
-      '&.open:after': {
-        opacity: 0,
-      },
-      '&::before': {
-        position: 'absolute',
-        content: '""',
-        height: '2px',
-        width: 10,
-        backgroundColor: 'white',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50% , -50%)',
-      },
-      '&::after': {
-        position: 'absolute',
-        content: '""',
-        height: 10,
-        width: '2px',
-        backgroundColor: 'white',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50% , -50%)',
-        transition: 'all 0.25s',
-      },
-    },
-  },
-};
-
 const variants = {
   open: {
-    height: 'auto',
-    marginTop: 12,
+    // maxHeight: 200,
+    height: "auto",
+    marginBottom: 10,
+    "@media(min-width: 768px)": {
+      marginBottom: 30,
+    },
   },
-  closed: { height: 0, marginTop: 0 },
+  closed: { height: 0, marginTop: 0, marginBottom: 0 },
 };
 export function AccordionContents({ isOpen, ...props }) {
   return (
     <motion.div
       initial="closed"
-      animate={isOpen ? 'open' : 'closed'}
+      animate={isOpen ? "open" : "closed"}
       variants={variants}
-      sx={{
-        overflowY: 'hidden',
-        fontSize: [1, 2],
-        lineHeight: 2,
-        color: '#343D48',
-        paddingLeft: ['33px', '45px'],
-        ' > div ': {
-          paddingBottom: [1, 2],
+      css={{
+        overflowY: "hidden",
+        fontSize: 15,
+        padding: "0 15px",
+        paddingRight: "40px",
+        lineHeight: "30px",
+        color: "#343D48",
+        "@media(min-width: 768px)": {
+          padding: "0 30px",
         },
       }}
       {...props}
@@ -87,12 +94,11 @@ export function AccordionContents({ isOpen, ...props }) {
 export const AccordionItem = ({ isOpen, children, ...rest }) => (
   <div
     css={{
-      overflow: 'hidden',
-      padding: '17px 0',
-      borderBottom: '1px solid #E5ECF4',
-      '&:last-child': {
-        borderBottom: '0px solid',
-      },
+      borderRadius: 5,
+      marginBottom: 10,
+      border: "1px solid #EDEFF2",
+      padding: 0,
+      overflow: "hidden",
     }}
     {...rest}
   >
@@ -101,14 +107,16 @@ export const AccordionItem = ({ isOpen, children, ...rest }) => (
 );
 
 export const preventClose = (state, changes) =>
-  changes.type === 'closing' && state.openIndexes.length < 2
+  changes.type === "closing" && state.openIndexes.length < 2
     ? { ...changes, openIndexes: state.openIndexes }
     : changes;
 
 export const single = (state, changes) =>
-  changes.type === 'opening'
+  changes.type === "opening"
     ? { ...changes, openIndexes: changes.openIndexes.slice(-1) }
     : changes;
 
-export const combineReducers = (...reducers) => (state, changes) =>
-  reducers.reduce((acc, reducer) => reducer(state, acc), changes);
+export const combineReducers =
+  (...reducers) =>
+  (state, changes) =>
+    reducers.reduce((acc, reducer) => reducer(state, acc), changes);

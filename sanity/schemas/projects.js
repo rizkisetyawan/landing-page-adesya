@@ -7,6 +7,12 @@ export default defineType({
   fields: [
     {name: 'order', title: 'Order', type: 'number'},
     {name: 'title', title: 'Title', type: 'string'},
-    {name: 'image', title: 'Image', type: 'image', options: {hotspot: true}},
+    {
+      name: 'images',
+      title: 'Images',
+      type: 'array',
+      of: [{type: 'reference', to: [{type: 'project'}]}],
+      options: {hotspot: true},
+    },
   ],
 })

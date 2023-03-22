@@ -1,24 +1,96 @@
 /** @jsx jsx */
-import { jsx, Box, Container, Button } from "theme-ui";
-
-import Masonry from "react-masonry-component";
+import { jsx, Box, Container, Image } from "theme-ui";
 import SectionHeading from "components/section-heading";
-import GalleryCard from "components/cards/gallery-card";
+import Accordion from "components/accordion/accordion";
+import { urlFor } from "utils/client";
 
-const masonryOptions = {
-  transitionDuration: 0,
-};
+const accordionData = [
+  {
+    isExpanded: false,
+    title: "How much does it cost to be a credit card merchant?",
+    contents: (
+      <div>
+        For our recent trip to S.A. I booked several accommodation thru SA
+        Places. I just wanted to tell you that everything worked out perfectly
+        with all the bookings and also your booking was very quick and
+        professional. I hope I have the opportunity to re-visit South Africa
+        soon, I will then make my bookings with your company again. I will also
+        recommend
+      </div>
+    ),
+  },
+  {
+    isExpanded: false,
+    title: "How can I open a merchant account?",
+    contents: (
+      <div>
+        For our recent trip to S.A. I booked several accommodation thru SA
+        Places. I just wanted to tell you that everything worked out perfectly
+        with all the bookings and also your booking was very quick and
+        professional. I hope I have the opportunity to re-visit South Africa
+        soon, I will then make my bookings with your company again. I will also
+        recommend
+      </div>
+    ),
+  },
+  {
+    isExpanded: false,
+    title: "How long does the application take?",
+    contents: (
+      <div>
+        For our recent trip to S.A. I booked several accommodation thru SA
+        Places. I just wanted to tell you that everything worked out perfectly
+        with all the bookings and also your booking was very quick and
+        professional. I hope I have the opportunity to re-visit South Africa
+        soon, I will then make my bookings with your company again. I will also
+        recommend
+      </div>
+    ),
+  },
+  {
+    isExpanded: false,
+    title: "Can I make payment outside of Hong Kong?",
+    contents: (
+      <div>
+        For our recent trip to S.A. I booked several accommodation thru SA
+        Places. I just wanted to tell you that everything worked out perfectly
+        with all the bookings and also your booking was very quick and
+        professional. I hope I have the opportunity to re-visit South Africa
+        soon, I will then make my bookings with your company again. I will also
+        recommend
+      </div>
+    ),
+  },
+  {
+    isExpanded: false,
+    title: "How do I get the payment complete?",
+    contents: (
+      <div>
+        For our recent trip to S.A. I booked several accommodation thru SA
+        Places. I just wanted to tell you that everything worked out perfectly
+        with all the bookings and also your booking was very quick and
+        professional. I hope I have the opportunity to re-visit South Africa
+        soon, I will then make my bookings with your company again. I will also
+        recommend
+      </div>
+    ),
+  },
+];
 
 const Projects = ({ data, text }) => {
-  const [projects, setProjects] = React.useState(data.slice(0, 6));
-
-  const handleButton = () => {
-    if (projects.length === 6) {
-      setProjects(data);
-    } else {
-      setProjects(data.slice(0, 6));
-    }
-  };
+  const sortData = data
+    .sort((a, b) => a.order - b.order)
+    .map((row) => ({
+      isExpanded: false,
+      title: row.title,
+      contents: (
+        <div sx={styles.wrapImage}>
+          {row.images.map((image) => (
+            <Image src={urlFor(image)} alt={row.title} />
+          ))}
+        </div>
+      ),
+    }));
 
   return (
     <Box id="projects" as="section" sx={styles.section}>
@@ -28,17 +100,7 @@ const Projects = ({ data, text }) => {
           title={text.title}
           description={text.subTitle}
         />
-        <Box as={Masonry} options={masonryOptions} sx={styles.galleryWrapper}>
-          {projects
-            ?.sort((a, b) => a.order - b.order)
-            .map((item) => (
-              <GalleryCard key={item._id} item={item} />
-            ))}
-        </Box>
-
-        <Button variant="muted" sx={styles.button} onClick={handleButton}>
-          {projects.length === 6 ? "Explore More" : "Hide"}
-        </Button>
+        <Accordion items={sortData} />
       </Container>
     </Box>
   );
@@ -54,8 +116,15 @@ const styles = {
   heading: {
     mb: [30, 30, 40, 60],
   },
-  galleryWrapper: {
-    mx: "-15px",
+  wrapImage: {
+    display: "flex",
+    justifyContent: "center",
+    flexWrap: "wrap",
+    gap: 16,
+    img: {
+      maxWidth: "400px",
+      borderRadius: "4px",
+    },
   },
   button: {
     minHeight: [50, 50, 50, 60],
