@@ -86,7 +86,7 @@ const Projects = ({ data, text }) => {
       contents: (
         <div sx={styles.wrapImage}>
           {row.images.map((image) => (
-            <Image src={urlFor(image)} alt={row.title} />
+            <Image key={image.asset._ref} src={urlFor(image)} alt={row.title} />
           ))}
         </div>
       ),

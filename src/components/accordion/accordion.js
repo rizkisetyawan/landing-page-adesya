@@ -1,8 +1,8 @@
-import React from 'react';
-import { Image } from 'theme-ui';
-import { BaseAccordion } from './base-accordion';
-import accordionIconClose from 'assets/accordion-arrow.svg';
-import accordionIconOpen from 'assets/accordion-arrow-e.svg';
+import React from "react";
+import { Image } from "theme-ui";
+import { BaseAccordion } from "./base-accordion";
+import accordionIconClose from "assets/accordion-arrow.svg";
+import accordionIconOpen from "assets/accordion-arrow-e.svg";
 import {
   AccordionButton,
   AccordionItem,
@@ -10,7 +10,7 @@ import {
   single,
   preventClose,
   combineReducers,
-} from './shared';
+} from "./shared";
 
 export default function Accordion({ items, ...props }) {
   const openIcon = <Image src={accordionIconOpen} alt="open icon" />;
